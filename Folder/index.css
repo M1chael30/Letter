@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ font-family: "Poppins", sans-serif;
+ background-color: #ddd;
+}
+
+.center {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+.popup {
+ width: 400px;
+ height: 400px;
+ padding: 30px 20px;
+ background-color: #f5f5f5;
+ border-radius: 10px;
+ z-index: 2;
+ text-align: center;
+ opacity: 0;
+ top: -200%;
+ transform: translate(-50%, -50%) scale(0.5);
+ transition: opacity 0.3s ease-in-out, top 10000ms ease-in-out,
+  transform 1000ms ease-in-out;
+}
+
+.popup.active {
+ opacity: 1;
+ top: 50%;
+ transform: translate(-50%, -50%) scale(1);
+ transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+}
+
+img {
+ width: 50%;
+}
+
+.popup .icon {
+ margin: 5px 0px;
+ width: 50px;
+ height: 50px;
+ border: 2px solid #34f234;
+ text-align: center;
+ display: inline-block;
+ border-radius: 50%;
+ line-height: 60px;
+}
+
+.popup .icon i.fa {
+ font-size: 30px;
+ color: #34f234;
+}
+
+.popup .title {
+ margin: 5px 0px;
+ font-size: 30px;
+ font-weight: 600;
+}
+
+.popup .description {
+ color: #222;
+ font-size: 15px;
+ padding: 5px;
+}
+
+.popup .dismiss-btn {
+ margin-top: 15px;
+}
+
+.popup .dismiss-btn button {
+ padding: 10px 20px;
+ background-color: #111;
+ color: #f5f5f5;
+ border: 2px solid #111;
+ font-size: 16px;
+ font-weight: 600;
+ border-radius: 10px;
+ transition: all 0.3s ease-in-out;
+ cursor: pointer;
+}
+
+.btn {
+ padding: 10px 20px;
+ background-color: #111;
+ color: #f5f5f5;
+ border: 2px solid #111;
+ font-size: 16px;
+ font-weight: 600;
+ border-radius: 10px;
+ transition: all 0.3s ease-in-out;
+ cursor: pointer;
+}
+
+.btn:hover {
+ color: #111;
+ background-color: #f5f5f5;
+}
+
+.popup .dismiss-btn button:hover {
+ color: #111;
+ background-color: #f5f5f5;
+}
+
+.popup > div {
+ position: relative;
+ top: 10px;
+ opacity: 0;
+}
+
+.popup.active > div {
+ top: 0px;
+ opacity: 1;
+}
+
+.popup.active .icon {
+ transition: all 300ms ease-in-out 250ms;
+}
+
+.popup.active .title {
+ transition: all 300ms ease-in-out 330ms;
+}
+
+.popup.active .description {
+ transition: all 300ms ease-in-out 350ms;
+}
+
+.popup.active .dismiss-btn {
+ transition: all 300ms ease-in-out 400ms;
+}
+
+@media (max-width: 400px) {
+ .popup {
+  width: 250px;
+  height: 350px;
+  padding: 30px 20px;
+ }
+ .popup .title {
+  font-size: 20px;
+ }
+ .popup .description {
+  font-size: 13px;
+ }
+ .popup .icon {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+ }
+ .popup .icon i.fa {
+  font-size: 15px;
+ }
+}
